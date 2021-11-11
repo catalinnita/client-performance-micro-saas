@@ -8,13 +8,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "chrome-launcher": "^0.15.0",
+    "lighthouse": "^8.6.0",
     "next": "12.0.3",
+    "puppeteer": "^11.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "reques": "^0.0.1-security",
+    "request": "^2.88.2"
   },
   "devDependencies": {
+    "@lighthousejs/types": "^0.0.3",
     "@types/node": "16.11.7",
     "@types/react": "17.0.34",
+    "@types/request": "^2.48.7",
     "eslint": "7",
     "eslint-config-next": "12.0.3",
     "typescript": "4.4.4"
