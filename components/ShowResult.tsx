@@ -15,6 +15,9 @@ export function ShowResult ({files, mapping}: IShowTests) {
     const [data, setData] = useState([] as Record<string, any>[]);
     const [borders, setBorders] = useState({} as Record<string, any>);
     const filesLength = files && files.length || 0
+    
+    // lousy hack to trigger useEffect if the order of elements inside the array changes
+    const arrayString = JSON.stringify(files)
 
     const setResults = async (files: string[]) => {
         const getFiles = [] as Promise<any>[]
@@ -41,15 +44,13 @@ export function ShowResult ({files, mapping}: IShowTests) {
         })
     }
 
-    console.log({borders})
-
     useEffect(() => {
         if  (filesLength > 0) {
             setResults(files)
         } else {
             setData([])
         }
-    }, [files, filesLength])    
+    }, [files, filesLength, arrayString])    
     
     const columnsNumber = data.length > 1 ? data.length + 1 : data.length;
 
@@ -60,7 +61,7 @@ export function ShowResult ({files, mapping}: IShowTests) {
             </Box>
             {Object.values(data).map((data, index) => 
                 <Box key={`data-${index}`}>
-                    <Box p={3}  borderBottom="2px solid #ccc" fontWeight="700">R{index}</Box>
+                    <Box p={3}  borderBottom="2px solid #ccc" textAlign="right" fontWeight="700">R{index}</Box>
                     {Object.keys(mapping).map(categoryName =>
                         <>
                             <Box p={3} pt={6} borderBottom="2px solid #ccc">&nbsp;</Box>
@@ -71,6 +72,7 @@ export function ShowResult ({files, mapping}: IShowTests) {
                                     outline={ borders?.[`${metricName}-${index}`] ? '2px solid black' : ''} 
                                     key={metricName} 
                                     p={3} 
+                                    textAlign="right"
                                     borderBottom="1px solid #ddd"  
                                     fontSize="11px" 
                                     fontWeight="400"
@@ -97,6 +99,7 @@ export function ShowResult ({files, mapping}: IShowTests) {
                                     borderBottom="1px solid #ddd"  
                                     fontSize="11px" 
                                     fontWeight="400"
+                                    textAlign="right"
                                     onClick={(e) => { toggleBorder('median', metricName) }} 
                                     outline={ borders?.[`${metricName}-median`] ? '2px solid black' : ''} 
                                 >{

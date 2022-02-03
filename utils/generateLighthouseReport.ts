@@ -5,11 +5,13 @@ import { Options } from "chrome-launcher"
 import reportGenerator from "lighthouse/report/generator/report-generator"
 import request from "request"
 import util from "util"
+import config from "./lighthouseConfig"
 
 export const generateLighthouseReport = async (url: string) => {
     const options = {
         logLevel: "info",
         disableDeviceEmulation: true,
+        // chromeFlags: ['--disable-mobile-emulation', '--headless'],
         chromeFlags: ['--disable-mobile-emulation'],
         onlyCategories: ['performance']
     } as Options
@@ -23,7 +25,7 @@ export const generateLighthouseReport = async (url: string) => {
     const browser = await puppeteer.connect({ browserWSEndpoint: webSocketDebuggerUrl })
 
     // Run Lighthouse
-    const { lhr } = await lighthouse(url, options, null)
+    const { lhr } = await lighthouse(url, options, config)
     browser.disconnect()
     await chrome.kill()
 
