@@ -1,5 +1,4 @@
 # client-performance-stats-api
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -13,4 +12,21 @@ yarn dev
 
 Open [http://localhost:3999](http://localhost:3999) with your browser to see the result.
 
+
+## Configure
+
+* configure the network throttling and devices in utils/lighthouseConfig.js
+
+* add flag for headless chrome in utils/generateLighthouseReport.ts
+
+* add new metrics in results list updating components/ShowResults.tsx
+
+## Use
+
+* run the tests
+* drag and drop them for generating reports
+
+##
+
+... more to come soon
 
