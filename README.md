@@ -30,7 +30,7 @@ Open [http://localhost:3999](http://localhost:3999) with your browser to see the
 
 ## Contribute
 
-* use the project added for this repository to report issues, propose features or pick a ticket and get it done https://github.com/catalinnita/client-performance-stats-api/projects?type=beta
+* use the project added for this repository to report issues, propose features or pick a ticket and get it done https://github.com/catalinnita/client-performance-micro-saas/projects?type=beta
 
 
 ... more to come soon
