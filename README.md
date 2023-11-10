@@ -1,4 +1,6 @@
-# client-performance-stats-api
+# client-performance-micro-saas
+
+Curently a tool for running lighthouse lab tests and calculate median of multiple results and generate reports for dev docs.
 
 ## Getting Started
 
