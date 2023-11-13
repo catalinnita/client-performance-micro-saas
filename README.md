@@ -2,6 +2,10 @@
 
 Curently a tool for running lighthouse lab tests and calculate median of multiple results and generate reports for dev docs.
 
+## Demo
+
+https://client-performance-micro-saas.vercel.app/
+
 ## Getting Started
 
 First, run the development server:
