@@ -37,10 +37,10 @@
     desktopDense4G: {
       rttMs: 40,
       throughputKbps: 10 * 1024,
-      cpuSlowdownMultiplier: 1,
       requestLatencyMs: 0, // 0 means unset
       downloadThroughputKbps: 0,
       uploadThroughputKbps: 0,
+      cpuSlowdownMultiplier: 1,
     },
   };
 

@@ -11,16 +11,17 @@ export const generateLighthouseReport = async (url: string) => {
     const options = {
         logLevel: "info",
         disableDeviceEmulation: true,
-        // chromeFlags: ['--disable-mobile-emulation', '--headless'],
-        chromeFlags: ['--disable-mobile-emulation'],
-        onlyCategories: ['performance']
+        chromeFlags: [
+            '--disable-mobile-emulation',
+        ],
+        onlyCategories: ['performance'],
     } as Options
 
     const chrome = await chromeLauncher.launch(options);
     options.port = chrome.port
 
     // Connect chrome-launcher to puppeteer
-    const resp = await util.promisify(request)(`http://localhost:${options.port}/json/version`)
+    const resp = await util.promisify(request)({url: `http://localhost:${options.port}/json/version`})
     const { webSocketDebuggerUrl } = JSON.parse(resp.body);
     const browser = await puppeteer.connect({ browserWSEndpoint: webSocketDebuggerUrl })
 

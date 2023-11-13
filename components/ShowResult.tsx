@@ -37,7 +37,7 @@ export function ShowResult ({files, mapping}: IShowTests) {
         })
     }
 
-    const toggleBorder = (index, metricName) => {
+    const toggleBorder = (index: string, metricName: string) => {
         setBorders({
             ...borders,
             [`${metricName}-${index}`]: !borders?.[`${metricName}-${index}`]
@@ -55,11 +55,12 @@ export function ShowResult ({files, mapping}: IShowTests) {
     const columnsNumber = data.length > 1 ? data.length + 1 : data.length;
 
     return (
-        <Grid fontSize="12px" templateColumns={`repeat(${columnsNumber}, 1fr)`}>
+        // <Grid fontSize="12px" templateColumns={`repeat(${columnsNumber}, 1fr)`}>
+        <Grid fontSize="12px">
             <Box gridColumn="1 / -1" borderBottom="2px solid #ccc" >
                 <Input type="text" fontSize="14px" fontWeight="700" height="45px"  p={3} border="0"/>
             </Box>
-            {Object.values(data).map((data, index) => 
+            {/* {Object.values(data).map((data, index) => 
                 <Box key={`data-${index}`}>
                     <Box p={3}  borderBottom="2px solid #ccc" textAlign="right" fontWeight="700">R{index}</Box>
                     {Object.keys(mapping).map(categoryName =>
@@ -77,13 +78,13 @@ export function ShowResult ({files, mapping}: IShowTests) {
                                     fontSize="11px" 
                                     fontWeight="400"
                                 >{
-                                    Math.ceil(getMetric(data))
+                                    metricName !== 'CLS' ? Math.round(getMetric(data)) : getMetric(data).toFixed(3)
                                 }</Box>
                             })}
                         </>
                     )}
                 </Box>
-            )}
+            )} */}
 
             {columnsNumber > 1 && <Box>
                 <Box bg='#efefef' p={3} borderBottom="2px solid #ccc" fontWeight="700">Median</Box>
@@ -105,7 +106,7 @@ export function ShowResult ({files, mapping}: IShowTests) {
                                 >{
                                     median(
                                         Object.values(data).map((data) => 
-                                            Math.ceil(getMetric(data))
+                                            metricName !== 'CLS' ? Math.round(getMetric(data)) : getMetric(data).toFixed(3)
                                         )
                                     )
                                 }</Box>

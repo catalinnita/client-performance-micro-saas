@@ -14,6 +14,7 @@
     "@emotion/styled": "^11",
     "@types/react-beautiful-dnd": "^13.1.2",
     "chrome-launcher": "^0.15.0",
+    "chrome-remote-interface": "^0.31.2",
     "framer-motion": "^4",
     "lighthouse": "^8.6.0",
     "math-stats": "^0.4.1",
@@ -28,6 +29,7 @@
     "@lighthousejs/types": "^0.0.3",
     "@types/node": "16.11.7",
     "@types/react": "^17.0.34",
+    "@types/request": "^2.48.12",
     "eslint": "7",
     "eslint-config-next": "12.0.3",
     "typescript": "^4.4.4"

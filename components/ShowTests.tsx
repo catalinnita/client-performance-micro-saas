@@ -30,16 +30,21 @@ export function ShowTests ({columnsNr, list, setList}: IShowTests) {
     
     const dragEnd = (res: Record<string, any>) => {
         const {destination, source, draggableId} = res;
-
+        console.log({columnsNr})
         const newList = Array.from(Array(columnsNr).keys()).map((column) => {
             // reorder items in the list
             if (destination.droppableId == column && source.droppableId == column) {
+                console.log({column, list})
                 const el = list[column].splice(source.index, 1)[0]
                 list[column].splice(destination.index, 0, el)
                 return list[column]
             }
             // place new item in the list
             if (destination.droppableId == column) {
+                console.log({column, list, destination, draggableId})
+                if (typeof(list[column]) === 'undefined') {
+                    list[column] = []
+                } 
                 list[column].splice(destination.index, 0, draggableId)
                 return list[column]
             }

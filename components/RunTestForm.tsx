@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { 
     Button,
     Grid,
-    Input, 
     NumberInput, 
     NumberInputField, 
     NumberInputStepper, 
@@ -111,7 +110,6 @@ export function RunTestForm ({ callback }: IRunTestForm) {
                     onBlur={() => {
                         sanitizeValues()
                     }}
-                    type="url" 
                     name="url" 
                     value={values.url} 
                     height="100px" 
@@ -119,7 +117,6 @@ export function RunTestForm ({ callback }: IRunTestForm) {
 
                 <Textarea 
                     height="100px" 
-                    type="text" 
                     name="testName" 
                     value={values.name} 
                     onChange={(e) => {
